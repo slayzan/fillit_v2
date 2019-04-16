@@ -6,7 +6,7 @@
 /*   By: humarque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:51:09 by humarque          #+#    #+#             */
-/*   Updated: 2019/04/12 14:55:00 by humarque         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:05:32 by humarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ static char	**ft_tabcreate(char *str, char **tab, int bloc)
 
 	i = 0;
 	s2 = ft_memalloc(sizeof(char) * 21);
-	printf("%d", bloc);
 	tab = (char **)ft_memalloc(sizeof(char*) * (bloc + 1));
 	while (i < 3)
 	{

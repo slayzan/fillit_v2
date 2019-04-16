@@ -6,7 +6,7 @@
 #    By: humarque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/08 14:15:22 by humarque          #+#    #+#              #
-#    Updated: 2019/04/09 14:54:20 by humarque         ###   ########.fr        #
+#    Updated: 2019/04/16 14:06:59 by humarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,10 @@ OBJ_PATH = ./obj/
 LIB_PATH = ./lib/
 INC_PATH = ./include/ $(LIB_PATH)libft/include/
 
-GCC_FLGS = -Werror -Wextra -Wall
+GCC_FLGS = -Werror -Wextra -Wall -g3
 
 SRC_NAME = main.c ft_check_shape.c ft_coord.c ft_parser.c ft_printresult.c \
-		   ft_solver.c ft_stocklist.c ft_stocktetra.c
+		   ft_solver.c ft_stocklist.c ft_stocktetra.c ft_free.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
