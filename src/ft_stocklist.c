@@ -6,7 +6,7 @@
 /*   By: humarque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 14:37:18 by humarque          #+#    #+#             */
-/*   Updated: 2019/04/16 14:00:53 by humarque         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:34:06 by humarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static char			**ft_splittab(char *str)
 	char	**tab;
 
 	i = 0;
-	tmp = (char*)ft_memalloc(sizeof(char) * (21));
-	tab = (char **)ft_memalloc(sizeof(char *) * 4);
+	if (!(tmp = (char*)ft_memalloc(sizeof(char) * (4))))
+		return (NULL);
+	if (!(tab = (char **)ft_memalloc(sizeof(char *) * 4)))
+		return (NULL);
 	while (i < 4)
 	{
-		j = -1;
+		j = 0;
 		tmp = ft_strncpy(tmp, str, 4);
-		if (!(tab[i] = (char*)ft_memalloc(sizeof(char*) * 5)))
-			return (NULL);
 		tab[i] = ft_strdup(tmp);
-		tab[i++][5] = '\0';
-		while (++j < 4)
+		i++;
+		while (j++ < 4)
 			str++;
 		ft_strclr(tmp);
 	}
@@ -43,11 +43,13 @@ t_tetri				**ft_createlist(char **tab, int bloc)
 	int			i;
 	t_tetri		**new;
 
-	new = (t_tetri**)ft_memalloc(sizeof(t_tetri*) * bloc);
+	if (!(new = (t_tetri**)ft_memalloc(sizeof(t_tetri*) * bloc)))
+		return (NULL);
 	i = 0;
 	while (i < bloc)
 	{
-		new[i] = (t_tetri*)ft_memalloc(sizeof(t_tetri));
+		if (!(new[i] = (t_tetri*)ft_memalloc(sizeof(t_tetri))))
+			return (NULL);
 		new[i]->shape = ft_splittab(tab[i]);
 		new[i]->min = get_minpoint(new[i]->shape);
 		new[i]->max = get_maxpoint(new[i]->shape);

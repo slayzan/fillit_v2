@@ -6,7 +6,7 @@
 /*   By: mchamayo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:51:59 by mchamayo          #+#    #+#             */
-/*   Updated: 2019/04/16 14:06:22 by humarque         ###   ########.fr       */
+/*   Updated: 2019/04/22 12:45:54 by mchamayo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 void	solve_all(int count, int fd)
 {
 	char		**tab;
+	int			bloc;
 	t_tetri		**first_tetri;
 	t_square	*square;
 
 	tab = NULL;
+	bloc = count / 4;
 	first_tetri = NULL;
-	tab = ft_stocktetra(fd, count);
+	tab = ft_stocktetra(fd, count, bloc);
 	if (!(ft_check_shape(tab, count)))
 	{
 		ft_putendl("error");
@@ -42,7 +44,7 @@ int		main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_putendl("error argc");
+		ft_putendl("usage : ./fillit source_file");
 		return (0);
 	}
 	if (!(fd = open(argv[1], O_RDONLY)))
